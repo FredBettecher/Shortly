@@ -23,7 +23,7 @@ export const postSignin = async (req, res) => {
     try {
         const userId = user.rows[0].id
         const token = uuid();
-        await db.query(`INSERT INTO sessions (userId, token) VALUES ($1, $2)`, [userId, token]);
+        await db.query(`INSERT INTO sessions ("userId", token) VALUES ($1, $2)`, [userId, token]);
 
         return res.status(200).send({ token: token});
 

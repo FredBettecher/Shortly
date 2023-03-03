@@ -29,8 +29,8 @@ export const validateSignin = async (req, res, next) => {
     const userExists = await db.query(`SELECT * FROM users WHERE email = $1`, [email]);
     const user = userExists.rows[0];
     const correctPassword = await bcrypt.compare(password, user.password);
-    if(!userExists || !correctPassword) {
-        res.status(401).send("E-mail or password incorrect.");
+    if(userExists.rows.length < 0 || !correctPassword) {
+        return res.status(401).send("E-mail or password incorrect.");
     }
 
     next();
