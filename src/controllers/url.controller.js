@@ -7,15 +7,16 @@ export const postUrlShorten = async (req, res) => {
     const userId = session.userId;
 
     try {
-        const shortUrl = nanoid(10);
+        const shortUrl = nanoid(8);
         await db.query(`INSERT INTO urls ("userId", url, "shortUrl") VALUES ($1, $2, $3)`, [userId, url, shortUrl]);
         const findUrl = await db.query(`SELECT * FROM urls WHERE "shortUrl" = $1`, [shortUrl]);
         
-        
-        return res.status(201).send({
+        const response = {
             id: findUrl.rows[0].id,
             shortUrl: findUrl.rows[0].shortUrl
-        })
+        };
+        
+        return res.status(201).send(response);
 
     } catch(err) {
         return res.status(500).send(err.message);
