@@ -52,3 +52,15 @@ export const getOpenShortUrl = async (req, res) => {
         return res.status(500).send(err.message);
     }
 };
+
+export const deleteUrlById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        await db.query(`DELETE FROM urls WHERE id = $1`, [id]);
+        return res.status(204).send("URL deleted successfully.");
+
+    } catch(err) {
+        return res.status(500).send(err.message);
+    }
+};

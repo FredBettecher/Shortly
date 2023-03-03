@@ -45,3 +45,22 @@ export const validateShortUrl = async (req, res, next) => {
 
     next();
 };
+
+export const validateDeleteUrl = async (req, res, next) => {
+    const { id } = req.params;
+
+    const token = req.headers.authorization;
+    if(!token) {
+        return res.status(401).send("Invalid token.");
+    }
+
+    const tokenResponse = await db.query(`SELECT * FROM sessions WHERE token = $1`, [token]);
+    const userIdByToken = tokenResponse.rows[0].userId;
+    const idResponse = await db.query(`SELECT * FROM urls WHERE id = $1`, [id]);
+    const userIdByUrl = idResponse.rows[0].userId;
+    if(userIdByToken !== userIdByUrl) {
+        return res.status(401).send("Cannot delete an URL you do not own.");
+    }
+
+    next();
+};
