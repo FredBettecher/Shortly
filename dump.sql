@@ -144,39 +144,45 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO public.sessions VALUES (1, 1, '3152759b-db0f-407f-9903-f0a5e7883648', '2023-03-02 22:02:44.494413');
+INSERT INTO public.sessions VALUES (2, 1, '087ceb4b-1477-49e9-9610-492b217c6f7b', '2023-03-02 22:02:54.754915');
+INSERT INTO public.sessions VALUES (3, 1, '94423604-8815-4f67-8ae8-ba43736618c4', '2023-03-02 22:43:11.487168');
 
 
 --
 -- Data for Name: urls; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO public.urls VALUES (1, 1, 'https://github.com/FredBettecher/Shortly', 'YJVriurBqK', 0, '2023-03-03 11:28:04.53021');
+INSERT INTO public.urls VALUES (2, 1, 'https://github.com/FredBettecher/Shortly', '-N8F1yDTsK', 0, '2023-03-03 12:45:59.310431');
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO public.users VALUES (1, 'Jack', 'jack@email.com', '$2b$10$J5YClWQ/JaqEgVUcK6tew.sjBygbdnVbKBcfOK0vxoIIQhomIgGhC', '2023-03-02 00:00:00');
 
 
 --
 -- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.sessions_id_seq', 1, false);
+SELECT pg_catalog.setval('public.sessions_id_seq', 3, true);
 
 
 --
 -- Name: urls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.urls_id_seq', 1, false);
+SELECT pg_catalog.setval('public.urls_id_seq', 2, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
 
 
 --

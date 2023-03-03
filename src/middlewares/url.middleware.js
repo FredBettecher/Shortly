@@ -34,3 +34,14 @@ export const validateUrlById = async (req, res, next) => {
 
     next();
 };
+
+export const validateShortUrl = async (req, res, next) => {
+    const { shortUrl } = req.params;
+
+    const validUrl = await db.query(`SELECT * FROM urls WHERE "shortUrl" = $1`, [shortUrl]);
+    if(validUrl.rows.length === 0) {
+        return res.status(404).send("URL not found.");
+    }
+
+    next();
+};

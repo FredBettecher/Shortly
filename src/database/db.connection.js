@@ -6,9 +6,10 @@ dotenv.config();
 const { Pool } = pg;
 
 const configDatabase = {
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 };
 
-if(process.env.MODE === 'prod') configDatabase.ssl = true;
+// if(process.env.MODE === 'prod') configDatabase.ssl = true;
 
 export const db = new Pool(configDatabase);
