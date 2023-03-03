@@ -14,7 +14,7 @@ export const validateUserMe = async (req, res, next) => {
         if(user.rows.length === 0) {
             return res.status(404).send("User not found.");
         }
-        
+
         req.userId = userId;
         
         next();
