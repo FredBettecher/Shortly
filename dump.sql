@@ -147,6 +147,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 INSERT INTO public.sessions VALUES (1, 1, '3152759b-db0f-407f-9903-f0a5e7883648', '2023-03-02 22:02:44.494413');
 INSERT INTO public.sessions VALUES (2, 1, '087ceb4b-1477-49e9-9610-492b217c6f7b', '2023-03-02 22:02:54.754915');
 INSERT INTO public.sessions VALUES (3, 1, '94423604-8815-4f67-8ae8-ba43736618c4', '2023-03-02 22:43:11.487168');
+INSERT INTO public.sessions VALUES (4, 2, '5d468f57-3461-4bf9-8a40-63da3ce6b72e', '2023-03-03 16:23:08.334381');
 
 
 --
@@ -155,6 +156,8 @@ INSERT INTO public.sessions VALUES (3, 1, '94423604-8815-4f67-8ae8-ba43736618c4'
 
 INSERT INTO public.urls VALUES (1, 1, 'https://github.com/FredBettecher/Shortly', 'YJVriurBqK', 0, '2023-03-03 11:28:04.53021');
 INSERT INTO public.urls VALUES (2, 1, 'https://github.com/FredBettecher/Shortly', '-N8F1yDTsK', 0, '2023-03-03 12:45:59.310431');
+INSERT INTO public.urls VALUES (3, 2, 'https://oglobo.globo.com/economia/noticia/2023/03/bolsa-familia-governo-avalia-correcao-de-beneficio-a-cada-dois-anos.ghtml', 'OdynCvqW', 0, '2023-03-03 16:23:17.832402');
+INSERT INTO public.urls VALUES (4, 2, 'https://oglobo.globo.com/economia/noticia/2023/03/bolsa-familia-governo-avalia-correcao-de-beneficio-a-cada-dois-anos.ghtml', 'GYtS7pXW', 0, '2023-03-03 16:23:35.20795');
 
 
 --
@@ -162,27 +165,28 @@ INSERT INTO public.urls VALUES (2, 1, 'https://github.com/FredBettecher/Shortly'
 --
 
 INSERT INTO public.users VALUES (1, 'Jack', 'jack@email.com', '$2b$10$J5YClWQ/JaqEgVUcK6tew.sjBygbdnVbKBcfOK0vxoIIQhomIgGhC', '2023-03-02 00:00:00');
+INSERT INTO public.users VALUES (2, 'Mary', 'mary@email.com', '$2b$10$zNE/18PHbnhofD2hc3vty.bl9C2reWOpEOmOKh9ycXStd8ZqLtoWS', '2023-03-03 00:00:00');
 
 
 --
 -- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.sessions_id_seq', 3, true);
+SELECT pg_catalog.setval('public.sessions_id_seq', 4, true);
 
 
 --
 -- Name: urls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.urls_id_seq', 2, true);
+SELECT pg_catalog.setval('public.urls_id_seq', 4, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.users_id_seq', 2, true);
 
 
 --
